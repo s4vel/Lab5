@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="15" class="java.beans.XMLDecoder">
+ <object class="system.Coll">
+  <void property="lastInitTime">
+   <object class="java.time.LocalDateTime" method="of">
+    <int>2021</int>
+    <object class="java.lang.Enum" id="Month0" method="valueOf">
+     <class>java.time.Month</class>
+     <string>MAY</string>
+    </object>
+    <int>23</int>
+    <int>23</int>
+    <int>15</int>
+    <int>44</int>
+   </object>
+  </void>
+  <void property="lastSaveTime">
+   <object class="java.time.LocalDateTime" method="of">
+    <int>2021</int>
+    <object idref="Month0"/>
+    <int>23</int>
+    <int>23</int>
+    <int>15</int>
+    <int>49</int>
+   </object>
+  </void>
+ </object>
+</java>
