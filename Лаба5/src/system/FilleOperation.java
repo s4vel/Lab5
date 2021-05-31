@@ -21,18 +21,17 @@ public class FilleOperation {
      * Saves collection into given file.
      *
      * @param collection collection that needs to be saved.
-     * @param fillename name of file in witch collection will be saved.
+     * @param fillename  name of file in witch collection will be saved.
      * @throws FileNotFoundException
      */
-    public static void save_into_file(Coll collection, String fillename) throws FileNotFoundException
-    {
+    public static void save_into_file(Coll collection, String fillename) throws FileNotFoundException {
         try {
-            File file=new File(fillename);
-            if(!file.exists()) throw new FileDoesntExistExeption();
-            if(file.isDirectory()) throw new FileIsDirectoryExeption();
-            if(!file.canWrite()) throw new UserRightsExeption();
+            File file = new File(fillename);
+            if (!file.exists()) throw new FileDoesntExistExeption();
+            if (file.isDirectory()) throw new FileIsDirectoryExeption();
+            if (!file.canWrite()) throw new UserRightsExeption();
             FileOutputStream out = new FileOutputStream(fillename);
-            XMLEncoder xmlEncoder=new XMLEncoder(out);
+            XMLEncoder xmlEncoder = new XMLEncoder(out);
             xmlEncoder.setPersistenceDelegate(LocalDateTime.class,
                     new PersistenceDelegate() {
                         @Override
@@ -41,7 +40,7 @@ public class FilleOperation {
                             return new Expression(localDateTime,
                                     LocalDateTime.class,
                                     "of",
-                                    new Object[] {localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond()});
+                                    new Object[]{localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth(), localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond()});
                         }
                     });
 
@@ -53,7 +52,7 @@ public class FilleOperation {
                             return new Expression(localDateTime,
                                     LocalDateTime.class,
                                     "of",
-                                    new Object[] {localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth(),localDateTime.getHour(),localDateTime.getMinute(),localDateTime.getSecond()});
+                                    new Object[]{localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth(), localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond()});
                         }
                     });
 
@@ -66,27 +65,22 @@ public class FilleOperation {
                             return new Expression(localDate,
                                     LocalDate.class,
                                     "of",
-                                    new Object[] {localDate.getYear(), localDate.getMonth(), localDate.getDayOfMonth()});
+                                    new Object[]{localDate.getYear(), localDate.getMonth(), localDate.getDayOfMonth()});
                         }
                     });
 
 
             xmlEncoder.writeObject(collection);
             xmlEncoder.close();
-        }
-        catch (FileDoesntExistExeption e){
+        } catch (FileDoesntExistExeption e) {
             System.out.println("Файл для сохранения не существует!");
-        }
-        catch (FileIsDirectoryExeption e){
+        } catch (FileIsDirectoryExeption e) {
             System.out.println("Файл для сохранения является дерикотрией!");
-        }
-        catch (UserRightsExeption e){
+        } catch (UserRightsExeption e) {
             System.out.println("У вас нет прав на запись в файл сохранения!");
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Файл для сохранения не найден!");
-        }
-        catch (IOException exception) {
+        } catch (IOException exception) {
             System.out.println("Файл для сохранения не может быть открыт!");
         }
 
@@ -97,46 +91,36 @@ public class FilleOperation {
      * Acquires collection from a file.
      *
      * @param filleName name of file in witch collection is stored.
-     * @return  Coll type collection
+     * @return Coll type collection
      * @throws FileNotFoundException
      */
-    public static Coll getFromFile(String filleName) throws FileNotFoundException
-    {
-        Object coll= new Object();
+    public static Coll getFromFile(String filleName) throws FileNotFoundException {
+        Object coll = new Object();
         Coll collection = new Coll();
         try {
-            File file=new File(filleName);
-            if(!file.exists()) throw new FileDoesntExistExeption();
-            if(file.isDirectory()) throw new FileIsDirectoryExeption();
-            if(!file.canRead()) throw new UserRightsExeption();
+            File file = new File(filleName);
+            if (!file.exists()) throw new FileDoesntExistExeption();
+            if (file.isDirectory()) throw new FileIsDirectoryExeption();
+            if (!file.canRead()) throw new UserRightsExeption();
             FileInputStream in = new FileInputStream(filleName);
             XMLDecoder decoder = new XMLDecoder(in);
-            coll=decoder.readObject();
-            collection=(Coll)coll;
+            coll = decoder.readObject();
+            collection = (Coll) coll;
             decoder.close();
             return collection;
-        }
-
-        catch (FileDoesntExistExeption e){
+        } catch (FileDoesntExistExeption e) {
             System.out.println("Файл для сохранения не существует!");
-        }
-        catch (FileIsDirectoryExeption e){
+        } catch (FileIsDirectoryExeption e) {
             System.out.println("Файл для сохранения является дерикотрией!");
-        }
-        catch (UserRightsExeption e){
+        } catch (UserRightsExeption e) {
             System.out.println("У вас нет прав на чтение из файла!");
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Загрузочный файл не найден!");
             System.exit(0);
-        }
-        catch (ArrayIndexOutOfBoundsException e)
-        {
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Загрузочный файл пуст или в нем хранится не коллекция!");
             System.exit(0);
-        }
-        catch (ClassCastException e)
-        {
+        } catch (ClassCastException e) {
             System.out.println("В загрузочном файле хранится не коллекция!");
             System.exit(0);
         }
@@ -147,39 +131,32 @@ public class FilleOperation {
     /**
      * Starts script execution from a file.
      *
-     * @param fillname name of file with script.
+     * @param fillname   name of file with script.
      * @param collection collection upon witch the script should be executed.
-     * @param fillename name of file in witch collection is stored.
+     * @param fillename  name of file in witch collection is stored.
      * @throws ScriptReqursionExeption
      * @throws ScriptErrorExeption
      */
-    public static boolean script(String fillname, Coll collection, String fillename) throws ScriptReqursionExeption, ScriptErrorExeption
-    {
+    public static boolean script(String fillname, Coll collection, String fillename) throws ScriptReqursionExeption, ScriptErrorExeption {
         try {
             File f = new File(fillname);
-            if(!f.exists()) throw new FileDoesntExistExeption();
-            if(f.isDirectory()) throw new FileIsDirectoryExeption();
-            if(!f.canRead()) throw new UserRightsExeption();
+            if (!f.exists()) throw new FileDoesntExistExeption();
+            if (f.isDirectory()) throw new FileIsDirectoryExeption();
+            if (!f.canRead()) throw new UserRightsExeption();
             Scanner in = new Scanner(f);
             boolean t = UserInteraction.getComandScript(in, collection, fillename);
             return t;
-        }
-        catch (FileDoesntExistExeption e){
+        } catch (FileDoesntExistExeption e) {
             System.out.println("Файл не существует!");
-        }
-        catch (FileIsDirectoryExeption e){
+        } catch (FileIsDirectoryExeption e) {
             System.out.println("Файл является дерикотрией!");
-        }
-        catch (UserRightsExeption e){
+        } catch (UserRightsExeption e) {
             System.out.println("У вас нет прав на чтение из файла!");
-        }
-        catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("Файл со скриптом не найден!");
         }
         return true;
     }
-
 
 
 }

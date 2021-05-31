@@ -21,6 +21,7 @@ public class Worker implements Comparable<Worker> {
 
     /**
      * Developer method to change ID if necessary
+     *
      * @param id
      */
     public void setId(int id) {
@@ -28,7 +29,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @param name
      */
     public void setName(String name) {
@@ -36,7 +36,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @param coordinates
      */
     public void setCoordinates(Coordinates coordinates) {
@@ -44,7 +43,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @param salary
      */
     public void setSalary(float salary) {
@@ -52,43 +50,34 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @param date
      */
-    public void setStartDate(Date date)
-    {
-        this.startDate=date;
+    public void setStartDate(Date date) {
+        this.startDate = date;
     }
 
     /**
-     *
      * @param dateTime
      */
-    public void setEndDate(LocalDateTime dateTime)
-    {
-        this.endDate=dateTime;
+    public void setEndDate(LocalDateTime dateTime) {
+        this.endDate = dateTime;
     }
 
     /**
-     *
      * @param position
      */
-    public void setPosition(Position position)
-    {
-        this.position=position;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     /**
-     *
      * @param organization
      */
-    public void setOrganization(Organization organization)
-    {
-        this.organization=organization;
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 
     /**
-     *
      * @param creationDate
      */
     public void setCreationDate(LocalDate creationDate) {
@@ -96,7 +85,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this id
      */
     public int getId() {
@@ -104,7 +92,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this salary
      */
     public float getSalary() {
@@ -112,7 +99,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this position
      */
     public Position getPosition() {
@@ -120,7 +106,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this name
      */
     public String getName() {
@@ -128,7 +113,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this startDate
      */
     public Date getStartDate() {
@@ -136,7 +120,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this creation date
      */
     public LocalDate getCreationDate() {
@@ -144,7 +127,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this organization
      */
     public Organization getOrganization() {
@@ -152,7 +134,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this coordinates
      */
     public Coordinates getCoordinates() {
@@ -160,7 +141,6 @@ public class Worker implements Comparable<Worker> {
     }
 
     /**
-     *
      * @return this endDate
      */
     public LocalDateTime getEndDate() {
@@ -169,11 +149,11 @@ public class Worker implements Comparable<Worker> {
 
     @Override
     public int compareTo(Worker o) {
-        int p1 = this.getId()-o.getId();
-        int p2=this.getName().compareTo(o.getName());
-        int p3=this.getCoordinates().getX().compareTo(o.getCoordinates().getX());
-        if(p1!=0)return p1;
-        else if(p2!=0)return p2;
+        int p1 = this.getId() - o.getId();
+        int p2 = this.getName().compareTo(o.getName());
+        int p3 = this.getCoordinates().getX().compareTo(o.getCoordinates().getX());
+        if (p1 != 0) return p1;
+        else if (p2 != 0) return p2;
         else return p3;
     }
 

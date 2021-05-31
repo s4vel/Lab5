@@ -10,7 +10,6 @@ public class Coordinates implements Comparable<Coordinates> {
     private Long y; //Поле не может быть null
 
     /**
-     *
      * @param x
      */
     public void setX(Long x) {
@@ -18,7 +17,6 @@ public class Coordinates implements Comparable<Coordinates> {
     }
 
     /**
-     *
      * @param y
      */
     public void setY(Long y) {
@@ -26,7 +24,6 @@ public class Coordinates implements Comparable<Coordinates> {
     }
 
     /**
-     *
      * @return this X
      */
     public Long getX() {
@@ -34,7 +31,6 @@ public class Coordinates implements Comparable<Coordinates> {
     }
 
     /**
-     *
      * @return this Y
      */
     public Long getY() {
@@ -43,7 +39,7 @@ public class Coordinates implements Comparable<Coordinates> {
 
     @Override
     public int compareTo(Coordinates o) {
-        return Comparator.comparing(Coordinates::getX).thenComparing(Coordinates::getY).compare(this,o);
+        return Comparator.comparing(Coordinates::getX).thenComparing(Coordinates::getY).compare(this, o);
     }
 
     @Override

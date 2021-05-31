@@ -11,9 +11,9 @@ public enum Position {
     DEVELOPER(3);
 
     private int value;
-    Position(int value)
-    {
-        this.value=value;
+
+    Position(int value) {
+        this.value = value;
     }
 
     public int getValue() {
@@ -21,15 +21,13 @@ public enum Position {
     }
 
     /**
-     *
      * @return str string with all constants of Position
      */
     public static String getString() {
-        String str="";
+        String str = "";
 
-        for (Position position: values())
-        {
-            str+=position+"; ";
+        for (Position position : values()) {
+            str += position + "; ";
         }
         return str;
     }

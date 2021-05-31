@@ -14,15 +14,12 @@ public class MinByID {
      *
      * @param collection collection you want to find element in.
      */
-    public static void minById(Coll collection)
-    {
+    public static void minById(Coll collection) {
         try {
-            if(collection.collectionSize()==0) throw new CollectioIsEmptyExeption();
+            if (collection.collectionSize() == 0) throw new CollectioIsEmptyExeption();
             Worker worker = collection.minByID();
             System.out.println(worker.toString());
-        }
-        catch (CollectioIsEmptyExeption e)
-        {
+        } catch (CollectioIsEmptyExeption e) {
             System.out.println("Коллекция пуста!");
         }
     }

@@ -5,6 +5,7 @@ import collection_filler.*;
 
 import java.io.FileNotFoundException;
 import java.text.*;
+
 import comands.*;
 
 
@@ -24,12 +25,11 @@ public class UserInteraction {
      * Gets Worker fields from user inputs.
      *
      * @param scanner scanner of user inputs.
-     * @param id ID of new worker.
-     * @return  new Worker element.
+     * @param id      ID of new worker.
+     * @return new Worker element.
      */
-    public static Worker getElement(Scanner scanner, int id)
-    {
-        Worker worker=new Worker();
+    public static Worker getElement(Scanner scanner, int id) {
+        Worker worker = new Worker();
         worker.setCreationDate(LocalDate.now());
         worker.setId(id);
         while (true) {
@@ -115,38 +115,38 @@ public class UserInteraction {
             }
         }
 
-        boolean t=true;
+        boolean t = true;
         while (t) {
             System.out.print("Введите должность из списка " + Position.getString());
             String stringPosition = scanner.nextLine().trim();
             switch (stringPosition) {
                 case ("LABORER"): {
                     worker.setPosition(Position.LABORER);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("ENGINEER"): {
                     worker.setPosition(Position.ENGINEER);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("HEAD_OF_DIVISION"): {
                     worker.setPosition(Position.HEAD_OF_DIVISION);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("HEAD_OF_DEPARTMENT"): {
                     worker.setPosition(Position.HEAD_OF_DEPARTMENT);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("DEVELOPER"): {
                     worker.setPosition(Position.DEVELOPER);
-                    t=false;
+                    t = false;
                     break;
                 }
 
-                default:{
+                default: {
                     System.out.println("Введите название из списка!");
                 }
 
@@ -174,37 +174,37 @@ public class UserInteraction {
 
         t = true;
         while (t) {
-            System.out.print("Введите тиа организации из списка "+ OrganizationType.getString());
+            System.out.print("Введите тиа организации из списка " + OrganizationType.getString());
             String stringOrganizationType = scanner.nextLine().trim();
             switch (stringOrganizationType) {
                 case ("COMMERCIAL"): {
                     organization.setType(OrganizationType.COMMERCIAL);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("PUBLIC"): {
                     organization.setType(OrganizationType.PUBLIC);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("GOVERNMENT"): {
                     organization.setType(OrganizationType.GOVERNMENT);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("TRUST"): {
                     organization.setType(OrganizationType.TRUST);
-                    t=false;
+                    t = false;
                     break;
                 }
-                default:{
+                default: {
                     System.out.println("Введите тип из списка!");
                 }
             }
 
         }
 
-        Address address=new Address();
+        Address address = new Address();
         while (true) {
             try {
                 System.out.print("Укажите улицу: ");
@@ -241,13 +241,12 @@ public class UserInteraction {
      * Gets Worker fields from user script.
      *
      * @param scanner scanner of script inputs.
-     * @param id ID of new worker.
-     * @return  new Worker element.
+     * @param id      ID of new worker.
+     * @return new Worker element.
      * @throws ElementAddingInScriptExeption
      */
-    public static Worker getElementScript(Scanner scanner, int id) throws ElementAddingInScriptExeption
-    {
-        Worker worker=new Worker();
+    public static Worker getElementScript(Scanner scanner, int id) throws ElementAddingInScriptExeption {
+        Worker worker = new Worker();
         worker.setCreationDate(LocalDate.now());
         worker.setId(id);
 
@@ -343,38 +342,38 @@ public class UserInteraction {
             }
         }
 
-        boolean t=true;
+        boolean t = true;
         while (t) {
 
             String stringPosition = scanner.nextLine().trim();
             switch (stringPosition) {
                 case ("LABORER"): {
                     worker.setPosition(Position.LABORER);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("ENGINEER"): {
                     worker.setPosition(Position.ENGINEER);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("HEAD_OF_DIVISION"): {
                     worker.setPosition(Position.HEAD_OF_DIVISION);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("HEAD_OF_DEPARTMENT"): {
                     worker.setPosition(Position.HEAD_OF_DEPARTMENT);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("DEVELOPER"): {
                     worker.setPosition(Position.DEVELOPER);
-                    t=false;
+                    t = false;
                     break;
                 }
 
-                default:{
+                default: {
                     System.out.println("Введина должность не из списка!");
                     throw new ElementAddingInScriptExeption();
                 }
@@ -410,25 +409,25 @@ public class UserInteraction {
             switch (stringOrganizationType) {
                 case ("COMMERCIAL"): {
                     organization.setType(OrganizationType.COMMERCIAL);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("PUBLIC"): {
                     organization.setType(OrganizationType.PUBLIC);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("GOVERNMENT"): {
                     organization.setType(OrganizationType.GOVERNMENT);
-                    t=false;
+                    t = false;
                     break;
                 }
                 case ("TRUST"): {
                     organization.setType(OrganizationType.TRUST);
-                    t=false;
+                    t = false;
                     break;
                 }
-                default:{
+                default: {
                     System.out.println("Введен тип организации не из списка!");
                     throw new ElementAddingInScriptExeption();
                 }
@@ -436,7 +435,7 @@ public class UserInteraction {
 
         }
 
-        Address address=new Address();
+        Address address = new Address();
         while (true) {
             try {
 
@@ -475,18 +474,16 @@ public class UserInteraction {
     /**
      * Gets command from user inputs and starts it's execution.
      *
-     * @param scanner scanner of user inputs.
+     * @param scanner    scanner of user inputs.
      * @param collection collection with witch user will operate.
-     * @param fillname  name of file in witch collection is stored.
+     * @param fillname   name of file in witch collection is stored.
      */
-    public static void getComand(Scanner scanner, Coll collection, String fillname)
-    {
+    public static void getComand(Scanner scanner, Coll collection, String fillname) {
 
         History history = new History();
-        boolean tr=true;
-        while(tr)
-        {
-            String strCom[]=scanner.nextLine().trim().split(" ",2);
+        boolean tr = true;
+        while (tr) {
+            String strCom[] = scanner.nextLine().trim().split(" ", 2);
             String comand = strCom[0];
             switch (comand) {
 
@@ -512,8 +509,7 @@ public class UserInteraction {
                     history.add(comand);
                     try {
                         Add.addElement(collection, scanner, false);
-                    } catch (ElementAddingInScriptExeption e)
-                    {
+                    } catch (ElementAddingInScriptExeption e) {
 
                     }
                     break;
@@ -526,18 +522,12 @@ public class UserInteraction {
                         int id = Integer.parseInt(strCom[1].trim());
                         try {
                             UpdateID.updateID(collection, id, scanner, false);
-                        }
-                        catch (ElementAddingInScriptExeption e)
-                        {
+                        } catch (ElementAddingInScriptExeption e) {
 
                         }
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         System.out.println("Необходимо ввести целое число");
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("В одной строке с этой командой должнен быть введен ID ");
                     }
 
@@ -547,15 +537,12 @@ public class UserInteraction {
                 case ("remove_by_id"): {
                     try {
                         history.add(comand);
-                        int id = Integer.parseInt(strCom[1].trim());;
+                        int id = Integer.parseInt(strCom[1].trim());
+                        ;
                         RemoveByID.removeByID(collection, id);
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         System.out.println("Необходимо ввести целое число");
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("В одной строке с этой командой должнен быть введен ID ");
                     }
                     break;
@@ -570,7 +557,7 @@ public class UserInteraction {
 
                 case ("save"): {
                     history.add(comand);
-                    Save.save(collection,fillname);
+                    Save.save(collection, fillname);
                     break;
                 }
 
@@ -578,20 +565,14 @@ public class UserInteraction {
                     history.add(comand);
                     try {
                         String f = strCom[1];
-                        System.out.println("Исполняю скрипт из файла "+f);
+                        System.out.println("Исполняю скрипт из файла " + f);
                         tr = ExecuteScript.executeScript(f, collection, fillname);
-                        System.out.println("Исполнение скрипта из файла "+f+" завершено");
-                    }
-                    catch (ScriptReqursionExeption e)
-                    {
+                        System.out.println("Исполнение скрипта из файла " + f + " завершено");
+                    } catch (ScriptReqursionExeption e) {
                         System.out.println("Скрипт не может быть рекурсивным!");
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("В одной строке с этой командой должно быть введено название файла со скриптом!");
-                    }
-                    catch (ScriptErrorExeption e)
-                    {
+                    } catch (ScriptErrorExeption e) {
                         System.out.println("При исполнении скрипта произошла ошибка!");
                     }
                     ExecuteScript.deleteScripts();
@@ -601,13 +582,13 @@ public class UserInteraction {
                 case ("exit"): {
                     history.add(comand);
                     scanner.close();
-                    tr=false;
+                    tr = false;
                     break;
                 }
 
                 case ("head"): {
                     history.add(comand);
-                        Head.head(collection);
+                    Head.head(collection);
                     break;
                 }
 
@@ -615,9 +596,7 @@ public class UserInteraction {
                     history.add(comand);
                     try {
                         RemoveLower.RemoveLower(collection, scanner, false);
-                    }
-                    catch (ElementAddingInScriptExeption e)
-                    {
+                    } catch (ElementAddingInScriptExeption e) {
 
                     }
                     break;
@@ -644,7 +623,7 @@ public class UserInteraction {
 
                 case ("count_greater_than_position"): {
                     history.add(comand);
-                    boolean t=true;
+                    boolean t = true;
                     Position position = Position.LABORER;
                     while (t) {
                         System.out.println("Введите позицию из списка: " + Position.getString());
@@ -679,11 +658,11 @@ public class UserInteraction {
                                 System.out.println("Пзиция должна быть из списка!");
                         }
                     }
-                        try {
-                            CountGreaterThanPosition.countGreaterThanPosition(collection, position);
-                        } catch (CollectioIsEmptyExeption e) {
-                            System.out.println("Коллекция пуста!");
-                        }
+                    try {
+                        CountGreaterThanPosition.countGreaterThanPosition(collection, position);
+                    } catch (CollectioIsEmptyExeption e) {
+                        System.out.println("Коллекция пуста!");
+                    }
 
                     break;
                 }
@@ -700,19 +679,17 @@ public class UserInteraction {
     /**
      * Gets command from user script and starts it's execution.
      *
-     * @param scanner scanner of script inputs.
+     * @param scanner    scanner of script inputs.
      * @param collection collection with witch script will operate.
-     * @param fillname  name of file in witch collection is stored.
+     * @param fillname   name of file in witch collection is stored.
      * @throws ScriptReqursionExeption
      * @throws ScriptErrorExeption
      */
-    public static boolean getComandScript(Scanner scanner, Coll collection, String fillname) throws ScriptReqursionExeption, ScriptErrorExeption
-    {
+    public static boolean getComandScript(Scanner scanner, Coll collection, String fillname) throws ScriptReqursionExeption, ScriptErrorExeption {
         History history = new History();
 
-        while(scanner.hasNext())
-        {
-            String strCom[]=scanner.nextLine().trim().split(" ",2);
+        while (scanner.hasNext()) {
+            String strCom[] = scanner.nextLine().trim().split(" ", 2);
             String comand = strCom[0];
             switch (comand) {
 
@@ -738,9 +715,7 @@ public class UserInteraction {
                     history.add(comand);
                     try {
                         Add.addElement(collection, scanner, true);
-                    }
-                    catch (ElementAddingInScriptExeption e)
-                    {
+                    } catch (ElementAddingInScriptExeption e) {
                         System.out.println("Во время добавления элемента в коллекцию в скрипте была допущенна ошибка!");
                         throw new ScriptErrorExeption();
                     }
@@ -753,19 +728,13 @@ public class UserInteraction {
                         history.add(comand);
                         int id = Integer.parseInt(strCom[1].trim());
                         UpdateID.updateID(collection, id, scanner, true);
-                    }
-                    catch (ElementAddingInScriptExeption e)
-                    {
+                    } catch (ElementAddingInScriptExeption e) {
                         System.out.println("При введении лбновленного элемента в коллекцию в скрипте была допущенна ошибка!");
                         throw new ScriptErrorExeption();
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         System.out.println("ID в команде update должно быть целым числом");
                         throw new ScriptErrorExeption();
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("В одной строке с командой update должнен быть введен ID ");
                         throw new ScriptErrorExeption();
                     }
@@ -776,16 +745,13 @@ public class UserInteraction {
                 case ("remove_by_id"): {
                     try {
                         history.add(comand);
-                        int id = Integer.parseInt(strCom[1].trim());;
+                        int id = Integer.parseInt(strCom[1].trim());
+                        ;
                         RemoveByID.removeByID(collection, id);
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         System.out.println("ID в команде remove_by_id должен быть целым числом");
                         throw new ScriptErrorExeption();
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("В одной строке с командой remove_by_id должнен быть введен ID ");
                         throw new ScriptErrorExeption();
                     }
@@ -800,7 +766,7 @@ public class UserInteraction {
 
                 case ("save"): {
                     history.add(comand);
-                    Save.save(collection,fillname);
+                    Save.save(collection, fillname);
                     break;
                 }
 
@@ -808,18 +774,14 @@ public class UserInteraction {
                     history.add(comand);
                     try {
                         String f = strCom[1];
-                        System.out.println("Исполняю скрипт из файла "+f);
+                        System.out.println("Исполняю скрипт из файла " + f);
                         boolean t = ExecuteScript.executeScript(f, collection, fillname);
-                        System.out.println("Исполнение скрипта из файла "+f+" завершено");
-                        if(!t) return false;
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
+                        System.out.println("Исполнение скрипта из файла " + f + " завершено");
+                        if (!t) return false;
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("В одной строке с командой execute_script должно быть введено название файла со скриптом!");
                         throw new ScriptErrorExeption();
-                    }
-                    catch (ScriptErrorExeption e)
-                    {
+                    } catch (ScriptErrorExeption e) {
                         System.out.println("При исполнении скрипта была допущенна ошибка");
                     }
 
@@ -842,9 +804,7 @@ public class UserInteraction {
                     history.add(comand);
                     try {
                         RemoveLower.RemoveLower(collection, scanner, false);
-                    }
-                    catch (ElementAddingInScriptExeption e)
-                    {
+                    } catch (ElementAddingInScriptExeption e) {
                         System.out.println("Вовремя добавления элемента для сравнения в скрипте была допущенна ошибка!");
                         throw new ScriptErrorExeption();
                     }
@@ -872,7 +832,7 @@ public class UserInteraction {
 
                 case ("count_greater_than_position"): {
                     history.add(comand);
-                    boolean t=true;
+                    boolean t = true;
                     Position position = Position.LABORER;
                     while (t) {
                         String stringPosition = scanner.nextLine();
@@ -923,8 +883,6 @@ public class UserInteraction {
 
         return true;
     }
-
-
 
 
 }

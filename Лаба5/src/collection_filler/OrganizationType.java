@@ -11,10 +11,9 @@ public enum OrganizationType {
 
 
     public static String getString() {
-        String str="";
-        for(OrganizationType organizationType : values())
-        {
-            str+=organizationType+"; ";
+        String str = "";
+        for (OrganizationType organizationType : values()) {
+            str += organizationType + "; ";
         }
 
         return str;

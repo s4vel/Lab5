@@ -12,8 +12,7 @@ public class Clear {
      *
      * @param collection collection you want to clear
      */
-    public static void clear(Coll collection)
-    {
+    public static void clear(Coll collection) {
         collection.delleteAll();
         System.out.println("Коллекция очищенна!");
     }

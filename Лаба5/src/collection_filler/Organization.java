@@ -10,7 +10,6 @@ public class Organization implements Comparable<Organization> {
 
 
     /**
-     *
      * @param fullName
      */
     public void setFullName(String fullName) {
@@ -18,7 +17,6 @@ public class Organization implements Comparable<Organization> {
     }
 
     /**
-     *
      * @param type
      */
     public void setType(OrganizationType type) {
@@ -26,7 +24,6 @@ public class Organization implements Comparable<Organization> {
     }
 
     /**
-     *
      * @param officialAddress
      */
     public void setOfficialAddress(Address officialAddress) {
@@ -34,7 +31,6 @@ public class Organization implements Comparable<Organization> {
     }
 
     /**
-     *
      * @return this fullName
      */
     public String getFullName() {
@@ -42,7 +38,6 @@ public class Organization implements Comparable<Organization> {
     }
 
     /**
-     *
      * @return this officialAddress
      */
     public Address getOfficialAddress() {
@@ -50,7 +45,6 @@ public class Organization implements Comparable<Organization> {
     }
 
     /**
-     *
      * @return this type
      */
     public OrganizationType getType() {

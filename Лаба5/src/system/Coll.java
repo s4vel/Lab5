@@ -21,11 +21,11 @@ public class Coll {
      * @param element
      */
     public void add(Worker element) {
-        myccolection.addFirst(element);int t = 1;
+        myccolection.addFirst(element);
+        int t = 1;
     }
 
     /**
-     *
      * @return worker with the lowest ID
      */
     public Worker minByID() {
@@ -42,6 +42,7 @@ public class Coll {
 
     /**
      * Deletes element from a collection
+     *
      * @param element
      */
     public void delete(Worker element) {
@@ -49,40 +50,33 @@ public class Coll {
     }
 
     /**
-     *
      * @return str string with all elements of collection.
      */
-   public String show()
-   {
-       String str="";
-       for(Worker element:this.myccolection)
-       {
-           str+=element.toString()+"\n";
-       }
-       return str;
-   }
+    public String show() {
+        String str = "";
+        for (Worker element : this.myccolection) {
+            str += element.toString() + "\n";
+        }
+        return str;
+    }
 
     /**
-     *
      * @return sum float summ of all salary fields in the collection
      */
-   public float sumOfSalary()
-   {
-       float sum=0;
-       for(Worker element:this.myccolection)
-       {
-           sum+=element.getSalary();
-       }
-       return sum;
-   }
+    public float sumOfSalary() {
+        float sum = 0;
+        for (Worker element : this.myccolection) {
+            sum += element.getSalary();
+        }
+        return sum;
+    }
 
     /**
      * Delets all elements from the collection
      */
-   public void delleteAll()
-   {
-       myccolection.clear();
-   }
+    public void delleteAll() {
+        myccolection.clear();
+    }
 
     /**
      * Finds element by it's ID
@@ -90,28 +84,24 @@ public class Coll {
      * @param id
      * @return worker with this ID
      */
-   public Worker findByID(int id)
-   {
-       Worker workerid=new Worker();
-       for(Worker element:this.myccolection)
-       {
-           if(element.getId()==id)
-           {
-               workerid=element;
-           }
-       }
-       return workerid;
-   }
+    public Worker findByID(int id) {
+        Worker workerid = new Worker();
+        for (Worker element : this.myccolection) {
+            if (element.getId() == id) {
+                workerid = element;
+            }
+        }
+        return workerid;
+    }
 
     /**
      * Returns head element of the collection
      *
      * @return head
      */
-   public Worker head()
-   {
-       return myccolection.peekFirst();
-   }
+    public Worker head() {
+        return myccolection.peekFirst();
+    }
 
     /**
      * Counts the amount of elements with position greater then position.
@@ -119,46 +109,38 @@ public class Coll {
      * @param position
      * @return i int
      */
-   public int countGreaterThenPosition(Position position)
-   {
-       int i=0;
-       for(Worker element:this.myccolection)
-       {
+    public int countGreaterThenPosition(Position position) {
+        int i = 0;
+        for (Worker element : this.myccolection) {
 
-           if(element.getPosition().getValue()>position.getValue())
-           {
-               i+=1;
-           }
-       }
-       return i;
-   }
+            if (element.getPosition().getValue() > position.getValue()) {
+                i += 1;
+            }
+        }
+        return i;
+    }
 
     /**
      * Finds elements lower than given and delets them.
      *
      * @param param Worker type element for comparison
      */
-   public void remoeLover(Worker param)
-   {
-       for(Worker worker:myccolection)
-       {
-           if(worker.compareTo(param)<=0)
-           {
-               delete(worker);
-           }
-       }
-   }
+    public void remoeLover(Worker param) {
+        for (Worker worker : myccolection) {
+            if (worker.compareTo(param) <= 0) {
+                delete(worker);
+            }
+        }
+    }
 
     /**
      * sets localSaveTime to date at the moment
      */
-   public void save()
-   {
-       lastSaveTime=LocalDateTime.now();
-   }
+    public void save() {
+        lastSaveTime = LocalDateTime.now();
+    }
 
     /**
-     *
      * @param ID
      */
     public void setID(int ID) {
@@ -166,7 +148,6 @@ public class Coll {
     }
 
     /**
-     *
      * @param lastInitTime
      */
     public void setLastInitTime(LocalDateTime lastInitTime) {
@@ -174,7 +155,6 @@ public class Coll {
     }
 
     /**
-     *
      * @param lastSaveTime
      */
     public void setLastSaveTime(LocalDateTime lastSaveTime) {
@@ -182,7 +162,6 @@ public class Coll {
     }
 
     /**
-     *
      * @param myccolection
      */
     public void setMyccolection(ArrayDeque<Worker> myccolection) {
@@ -190,7 +169,6 @@ public class Coll {
     }
 
     /**
-     *
      * @return
      */
     public int getID() {
@@ -198,7 +176,6 @@ public class Coll {
     }
 
     /**
-     *
      * @return lastInitTime
      */
     public LocalDateTime getLastInitTime() {
@@ -206,7 +183,6 @@ public class Coll {
     }
 
     /**
-     *
      * @return lastSaveTime
      */
     public LocalDateTime getLastSaveTime() {
@@ -214,7 +190,6 @@ public class Coll {
     }
 
     /**
-     *
      * @return myccolection
      */
     public ArrayDeque<Worker> getMyccolection() {
@@ -222,7 +197,6 @@ public class Coll {
     }
 
     /**
-     *
      * @return name of class stored inside collection.
      */
     public String collectionType() {
@@ -230,7 +204,6 @@ public class Coll {
     }
 
     /**
-     *
      * @return collection size
      */
     public int collectionSize() {
@@ -238,12 +211,10 @@ public class Coll {
     }
 
     /**
-     *
      * @return this ID increased by 1.
      */
-    public int getNextId()
-    {
-        ID=ID+1;
+    public int getNextId() {
+        ID = ID + 1;
         return ID;
     }
 

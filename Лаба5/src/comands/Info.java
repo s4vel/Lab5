@@ -12,8 +12,7 @@ public class Info {
      *
      * @param collection collection you want to get information about.
      */
-    public static void infoComand(Coll collection)
-    {
+    public static void infoComand(Coll collection) {
         System.out.println("Свединья о коллекции");
         System.out.println(collection.collectionSize());
         System.out.println(collection.collectionType());

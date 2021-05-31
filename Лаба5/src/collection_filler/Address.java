@@ -9,7 +9,6 @@ public class Address {
     private String zipCode; //Поле не может быть null
 
     /**
-     *
      * @param street
      */
     public void setStreet(String street) {
@@ -17,7 +16,6 @@ public class Address {
     }
 
     /**
-     *
      * @param zipCode
      */
     public void setZipCode(String zipCode) {
@@ -25,7 +23,6 @@ public class Address {
     }
 
     /**
-     *
      * @return this street
      */
     public String getStreet() {
@@ -33,7 +30,6 @@ public class Address {
     }
 
     /**
-     *
      * @return this zipCode
      */
     public String getZipCode() {

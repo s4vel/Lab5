@@ -6,24 +6,22 @@ import exeptions.HistoryIsEmptyExeption;
  * Stores and operate history of command.
  */
 public class History {
-    private String story[]=new String[8];
-    private int start=-1;
-    private int cur=0;
-    private int size=0;
+    private String story[] = new String[8];
+    private int start = -1;
+    private int cur = 0;
+    private int size = 0;
 
     /**
      * Adds command to history.
      *
      * @param str string name of command.
      */
-    public void add(String str)
-    {
-        story[cur]=str;
-        if(cur==0)
-        {
-            start=(start+1)%8;
+    public void add(String str) {
+        story[cur] = str;
+        if (cur == 0) {
+            start = (start + 1) % 8;
         }
-        cur=(cur+1)%8;
+        cur = (cur + 1) % 8;
         size++;
     }
 
@@ -32,10 +30,9 @@ public class History {
      *
      * @return string history.
      */
-    public String getStory()
-    {
+    public String getStory() {
         try {
-            if(size==0)throw new HistoryIsEmptyExeption();
+            if (size == 0) throw new HistoryIsEmptyExeption();
             String s = "";
             for (int i = start; i < Math.min(8, size); i++) {
                 s += story[i] + "\n";
@@ -46,13 +43,10 @@ public class History {
             }
 
             return s;
-        }
-        catch (HistoryIsEmptyExeption e)
-        {
+        } catch (HistoryIsEmptyExeption e) {
             return "история пуста\n";
         }
     }
-
 
 
 }
